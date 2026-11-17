@@ -27,5 +27,5 @@ def add_user(conn, name, email, is_admin=False):
 def find_user(conn, name):
     """Return (id, name, email) for the user called `name`, or None."""
     cursor = conn.cursor()
-    cursor.execute(f"SELECT id, name, email FROM users WHERE name = '{name}'")
+    cursor.execute("SELECT id, name, email FROM users WHERE name = ?", (name,))
     return cursor.fetchone()
