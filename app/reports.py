@@ -1,8 +1,6 @@
-"""Line counts for report files. Deliberately vulnerable: shell=True with
-interpolated input (CWE-78)."""
-import subprocess
+"""Line counts for report files."""
 
 
 def line_count(filename):
-    result = subprocess.run(f"wc -l < {filename}", shell=True, capture_output=True, text=True)
-    return int(result.stdout.strip() or 0)
+    with open(filename, "r") as f:
+        return sum(1 for _ in f)
