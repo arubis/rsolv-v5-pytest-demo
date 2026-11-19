@@ -16,7 +16,7 @@ on:
 permissions: {}
 jobs:
   scan:
-    uses: RSOLV-dev/rsolv-action/.github/workflows/rsolv-scan.yml@8ddc4eb2521d8e9bbf9c8d3ca98eb5b2a5ef6323 # v5 W' (host 0.2.0, base-built verify; staging E2E)
+    uses: RSOLV-dev/rsolv-action/.github/workflows/rsolv-scan.yml@1f89ed5f27c2b865b80605d282dc1ca363d16a56 # v5 W'' (host 0.2.1, base-built verify; staging E2E)
     permissions:
       contents: read
       issues: write
@@ -32,7 +32,7 @@ jobs:
         issue: ${{ fromJSON(needs.scan.outputs.issues) }}
       max-parallel: 4
       fail-fast: false
-    uses: RSOLV-dev/rsolv-action/.github/workflows/rsolv-issue.yml@8ddc4eb2521d8e9bbf9c8d3ca98eb5b2a5ef6323 # v5 W' (host 0.2.0, base-built verify; staging E2E)
+    uses: RSOLV-dev/rsolv-action/.github/workflows/rsolv-issue.yml@1f89ed5f27c2b865b80605d282dc1ca363d16a56 # v5 W'' (host 0.2.1, base-built verify; staging E2E)
     # The most any of its jobs may ask for. work and verify ask for contents: read and id-token
     # only; publish adds the writes, and runs only after verify proves the fix.
     permissions:
